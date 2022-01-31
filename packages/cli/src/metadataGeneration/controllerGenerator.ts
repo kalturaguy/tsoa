@@ -22,6 +22,7 @@ export class ControllerGenerator {
     this.isHidden = this.getIsHidden();
     this.commonResponses = this.getCommonResponses();
     this.produces = this.getProduces();
+    this.getExtraModels();
   }
 
   public IsValid() {
@@ -53,6 +54,18 @@ export class ControllerGenerator {
       .map(m => new MethodGenerator(m, this.current, this.commonResponses, this.path, this.tags, this.security, this.isHidden))
       .filter(generator => generator.IsValid())
       .map(generator => generator.Generate());
+  }
+  private getExtraModels() {
+    const decorators = getDecorators(this.node, identifier => identifier.text === 'ExtraModels');
+    if (!decorators || !decorators.length) {
+      return;
+    }
+    decorators.forEach(decorator => {
+      const parent = decorator.parent as ts.CallExpression;
+      (parent.typeArguments || []).forEach(node => {
+        new TypeResolver(node, this.current).resolve();
+      });
+    });
   }
 
   private getPath() {
