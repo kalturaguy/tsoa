@@ -14,7 +14,7 @@ export function Hidden(): Function {
 }
 
 /**
- *  Specify all events of the controller
+ *  Specify all extra models of the controller
  */
 export function ExtraModels<A, B = void, C = void, D = void, E = void, F = void, G = void, H = void, I = void>() {
   return (target: any) => {
