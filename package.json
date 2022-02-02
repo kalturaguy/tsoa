@@ -1,6 +1,6 @@
 {
-  "name": "@kalturaguy/tsoa",
-  "version": "4.0.1",
+  "name": "tsoa",
+  "version": "4.0.0",
   "description": "Build swagger-compliant REST APIs using TypeScript and Node",
   "private": false,
   "keywords": [
