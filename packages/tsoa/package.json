@@ -1,5 +1,5 @@
 {
-  "name": "tsoa",
+  "name": "@kalturaguy/tsoa",
   "description": "Build swagger-compliant REST APIs using TypeScript and Node",
   "version": "4.0.1",
   "main": "./dist/index.js",

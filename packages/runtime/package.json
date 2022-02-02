@@ -1,5 +1,5 @@
 {
-  "name": "@tsoa/runtime",
+  "name": "@kalturaguy/tsoa-runtime",
   "description": "Build swagger-compliant REST APIs using TypeScript and Node",
   "version": "4.0.1",
   "main": "./dist/index.js",
