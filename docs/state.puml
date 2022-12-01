@@ -1,0 +1,21 @@
+@startuml
+
+state c <<choice>>
+
+[*] --> Connected: Websocket Connected
+Connected --> [*]: timeout
+Connected --> c: Authenticate(jwt)
+
+c --> Lobby:  no password needed
+c --> WaitForPassword: password needed
+Connected --> [*]: authentication failed
+
+WaitForPassword --> Lobby: login(password)
+WaitForPassword --> [*]: wrong password
+Lobby : this is a string
+Lobby -> LoggedIn: 1. <max users && \n2. moderator allow you && \n3.Moderator logged in
+
+LoggedIn --> [*]: Disconnected
+LoggedIn --> Lobby: (???)
+LoggedIn --> [*]: User Bannded
+@enduml

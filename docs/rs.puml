@@ -1,0 +1,67 @@
+@startuml
+skinparam handwritten true
+actor User as U
+actor RS as R
+actor Backend as B
+actor Microservices as MS
+actor Redis
+U->B: getWebrtcServer
+B->U: url, jtw
+U->R: ws connect
+U->R: Authenticate (jtw)
+R->R: if first user\n*get settings
+alt check validity\n*jtw valid\n*not banned
+R->U: close socket
+end
+
+
+alt login
+R->U: { status: "PASSWORDNEEDED"... }
+U->R: password
+R->U: Fail
+end
+R->R: should user wait in lobby:\n* max capacity\n* moderator not arrived\n* lobby mode
+R->U: Wait (reason)
+
+loop until user can get in
+    R->R: Wait
+end
+
+
+R->U: GO
+
+alt conditional for some MS in some modes\n(for now BOR only)
+R->MS: User joined
+end
+
+U->R: getModule(s)State
+alt if not cached
+ R->MS:getState
+ MS->R: state +version
+end
+
+R->U: module(s) state
+
+loop MS actions
+    U->R: action
+    R->MS: action
+    MS->R: response
+    R->U: response
+end
+loop
+    MS->R: publish states(+version)
+    R->R: updateState
+    R->U: update state
+end
+
+loop
+    MS->R: event
+    R->U: event
+end
+
+U->R: logout
+R->MS: User left (conditional)
+
+@enduml
+
+

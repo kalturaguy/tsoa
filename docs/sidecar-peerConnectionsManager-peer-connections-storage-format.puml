@@ -1,0 +1,72 @@
+@startuml
+!$data={"users":
+  {"1":
+    {"rooms":
+        {"1234":[
+          {"peerConnectionId":"11111111", "mediaServerPeerConnectionId":"22222222","streams":[
+              {"inputIndex":0,"inputType":0,"mediaType":0,"userId":1,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":2346,"id":"1#1#0_0_0#1234#2346"},
+              {"inputIndex":0,"inputType":0,"mediaType":1,"userId":1,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":2346,"id":"1#1#0_0_0#1234#2346"}
+            ]
+          },
+          {"peerConnectionId":"33333333", "mediaServerPeerConnectionId":"44444444","streams":[
+              {"inputIndex":1,"inputType":0,"mediaType":0,"userId":1,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":3457,"id":"1#1#0_0_0#1234#3457"},
+              {"inputIndex":1,"inputType":0,"mediaType":1,"userId":1,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":3457,"id":"1#1#0_0_0#1234#3457"}
+            ]
+          }
+        ],
+        "1235":[
+          {"peerConnectionId":"55555555", "mediaServerPeerConnectionId":"66666666","streams":[
+              {"inputIndex":0,"inputType":0,"mediaType":0,"userId":1,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":1957,"id":"1#1#0_0_0#1234#1957"},
+              {"inputIndex":0,"inputType":0,"mediaType":1,"userId":1,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":1957,"id":"1#1#0_0_0#1234#1957"}
+            ]
+          },
+          {"peerConnectionId":"77777777", "mediaServerPeerConnectionId":"88888888","streams":[
+              {"inputIndex":1,"inputType":0,"mediaType":0,"userId":1,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":6280,"id":"1#1#0_0_0#1234#6280"},
+              {"inputIndex":1,"inputType":0,"mediaType":1,"userId":1,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":6280,"id":"1#1#0_0_0#1234#6280"}
+            ]
+          }
+        ]
+      }
+    },
+    "2":
+    {"rooms":
+        {"1234":[
+          {"peerConnectionId":"10101010", "mediaServerPeerConnectionId":"20202020","streams":[
+              {"inputIndex":0,"inputType":0,"mediaType":0,"userId":2,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":5057,"id":"1#1#0_0_0#1234#5057"},
+              {"inputIndex":0,"inputType":0,"mediaType":1,"userId":2,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":5057,"id":"1#1#0_0_0#1234#5057"}
+            ]
+          },
+          {"peerConnectionId":"30303030", "mediaServerPeerConnectionId":"40404040","streams":[
+              {"inputIndex":1,"inputType":0,"mediaType":0,"userId":2,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":9744,"id":"1#1#0_0_0#1234#9744"},
+              {"inputIndex":1,"inputType":0,"mediaType":1,"userId":2,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":9744,"id":"1#1#0_0_0#1234#9744"}
+            ]
+          }
+        ],
+        "1235":[
+          {"peerConnectionId":"50505050", "mediaServerPeerConnectionId":"60606060","streams":[
+              {"inputIndex":0,"inputType":0,"mediaType":0,"userId":2,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":4896,"id":"1#1#0_0_0#1234#4896"},
+              {"inputIndex":0,"inputType":0,"mediaType":1,"userId":2,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":4896,"id":"1#1#0_0_0#1234#4896"}
+            ]
+          },
+          {"peerConnectionId":"70707070", "mediaServerPeerConnectionId":"80808080","streams":[
+              {"inputIndex":1,"inputType":0,"mediaType":0,"userId":1,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":9663,"id":"1#1#0_0_0#1234#9663"},
+              {"inputIndex":1,"inputType":0,"mediaType":1,"userId":1,"groupId":"","msId":"1234","roomId":2,"regionId":-1,"muted":false,"rnd":9663,"id":"1#1#0_0_0#1234#9663"}
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+title Example of how the sidecar peerConnectionsManager\nstores the information for all the peer connections. There are\n2 users in the example user 1 and user 2.\nThey are both connected to room 1234 & 1235. And each user\nis publishing 2 webcams to each room.
+rectangle {
+rectangle Inner as "
+{{json
+$data
+}}
+"
+
+
+}
+@enduml
